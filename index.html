@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himash Guruge Text Animation</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #1a1a1a; /* Dark background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .text {
+            font-size: 80px; /* Starting size */
+            color: #00ffcc; /* Neon green */
+            text-shadow: 0 0 10px #00ffcc; /* Glow effect */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            filter: blur(0px); /* Initial blur */
+            animation: zoomBlur 4s infinite; /* Animation */
+        }
+        @keyframes zoomBlur {
+            0% {
+                font-size: 80px;
+                filter: blur(0px);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            50% {
+                font-size: 200px; /* Large size */
+                filter: blur(10px); /* Blur effect */
+                top: 90%; /* Move to bottom */
+                transform: translateY(-90%);
+            }
+            100% {
+                font-size: 80px;
+                filter: blur(0px);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    </style>
+    <!-- jQuery CDN (optional, for future interactivity) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Optional: Add interactivity if needed
+            $(document).on("click", function() {
+                $(".text").css("animation-play-state", "paused"); // Pause on click
+            });
+            $(document).on("dblclick", function() {
+                $(".text").css("animation-play-state", "running"); // Resume on double-click
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="text">Himash Guruge</div>
+    </div>
+</body>
+</html>
